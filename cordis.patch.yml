@@ -1,0 +1,4 @@
+- insert:
+    - id: dsh-mermaid
+      name: 'dsh-mermaid'
+      config: {}

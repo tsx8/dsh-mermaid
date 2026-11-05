@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Mermaid diagrams",
+    "description": "Renders Mermaid code blocks in the conversation as diagrams, with an in-place source/diagram toggle."
+  }
+}

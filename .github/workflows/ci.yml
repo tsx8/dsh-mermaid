@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install dev dependencies
+        run: npm install --no-audit --no-fund
+      - name: Build bundle
+        run: npm run build
+      - name: Committed bundle matches source
+        run: git diff --exit-code -- client.js
+      - name: Smoke test
+        run: npm test

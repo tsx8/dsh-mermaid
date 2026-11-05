@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Mermaid 图表",
+    "description": "把对话里的 Mermaid 代码块就地渲染成图，并可在块内切换查看源码。"
+  }
+}

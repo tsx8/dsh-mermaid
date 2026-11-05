@@ -1,0 +1,65 @@
+{
+  "name": "dsh-mermaid",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Render Mermaid code blocks as diagrams in DeepSeek Harness, with an in-place source/diagram toggle.",
+  "license": "MIT",
+  "author": "tsx8",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsx8/dsh-mermaid.git"
+  },
+  "homepage": "https://github.com/tsx8/dsh-mermaid#readme",
+  "bugs": {
+    "url": "https://github.com/tsx8/dsh-mermaid/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "mermaid",
+    "diagram",
+    "markdown"
+  ],
+  "engines": {
+    "dsh": ">=0.2.2-rc.1 <0.3.0"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "client.src.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md"
+  ],
+  "scripts": {
+    "build": "esbuild client.src.js --bundle --format=iife --platform=browser --minify --legal-comments=eof --outfile=client.js",
+    "check": "node --check client.js",
+    "test": "node test/smoke.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "jsdom": "^26.0.0",
+    "pele": "1.13.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true
+    }
+  }
+}
